@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern AI Chat</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk"]
+            },
+            borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex flex-col h-screen">
+<header class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 shrink-0">
+<button class="p-2 text-gray-600 dark:text-gray-400">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+</svg>
+</button>
+<h1 class="text-lg font-bold text-gray-900 dark:text-white">New Chat</h1>
+<div class="w-10"></div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 space-y-6">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAlpGEai4WRXj1vQ5ENWP_gaS2MO0UHbar5ArTBt-howVujrkmd-RDFlaQnt9YWyqlmZ_T1kxYES2Z5JMYFarPQaRbhjakQO8dpyCxPT9cQZa--F8a1iMzCE1Rgw94c_1CmlEJjzRZwhRouQ7O6sZuo8SQ2yJ_qZ_GLYnA7azytlZ5gXMXh-PPa8HZq0RcujDph8LD3ryqfIyCafVTaEDWYZdwvuMWhvls2XIIZQCYIL8v0Y2GYuX1mg02jfUY3UaytEt_Wru6Hxkc");'></div>
+<div class="flex flex-col items-start">
+<span class="text-sm text-gray-500 dark:text-gray-400 mb-1">AI Assistant</span>
+<div class="bg-gray-200 dark:bg-gray-800 p-3 rounded-lg rounded-tl-none max-w-xs">
+<p class="text-gray-800 dark:text-gray-200">What is your name?</p>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 justify-end">
+<div class="flex flex-col items-end">
+<span class="text-sm text-gray-500 dark:text-gray-400 mb-1">User</span>
+<div class="bg-primary text-white p-3 rounded-lg rounded-tr-none max-w-xs">
+<p>My name is Alex.</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1RADg0ggMQh4jkHPqbfUXg3iAD_htrurNq7A71peVxaWBzlJTlZzaKv11jzOoGSvTJUo284j_MnodSruBMRJFGZZZ6-nmhhvQyESV1Mv0eoFfz-G4wbMb0yc_Ezm5WdOf7aJZ_juvI-eCbBBeiLfhW6nva0J4AI6ImPurjHXTfHVoVcaqGN4YdF9XUx0aUlC5DPyGAFoYx-B7bJrxvXbUYz8I7x47jlGO4Uj4AIWSm4jyGeOt5UwHWxaEb6mNIRjjqtbsEaepUOGe");'></div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-0RD-afoF9uCCNKgSf4sxMHpg1fimiNYo9M8JxZQmUYlChDpKYJzuKlPhF0ZeiJ96Gg8N91UIHsVfFJdiWamprmWGuzfQz3m9EH_XA8tNXZ7IRXaF3MllubWXp4U6nclJKO6fUzgc5_wxl1uiZSZx251xPx0I3kq4ZkWi77pFIZ1eg5A5G4NNqCq8_d7tPmGFZuqbdT_ALWWE72lc8zffJor3Iq-CslmO-htLdU7LSDfjPwyEFsRRSUle7RbVlrknYMxBRAp759FH");'></div>
+<div class="flex flex-col items-start">
+<span class="text-sm text-gray-500 dark:text-gray-400 mb-1">AI Assistant</span>
+<div class="bg-gray-200 dark:bg-gray-800 p-3 rounded-lg rounded-tl-none max-w-xs">
+<p class="text-gray-800 dark:text-gray-200">What is your favorite color?</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="sticky bottom-0 bg-background-light dark:bg-background-dark">
+<div class="p-4 @container">
+<div class="relative">
+<input class="w-full h-12 px-4 pr-28 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Type your answer..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 h-9 px-4 rounded-lg bg-primary text-white font-semibold text-sm disabled:bg-primary/50 disabled:cursor-not-allowed" disabled="">Complete</button>
+</div>
+</div>
+<nav class="flex justify-around p-2 border-t border-gray-200 dark:border-gray-800">
+<a class="flex flex-col items-center gap-1 text-primary p-2" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,24a104,104,0,0,0-91.8,154.2L24.53,212.53a16,16,0,0,0,0,22.63A15.95,15.95,0,0,0,36,240a16,16,0,0,0,11.31-4.69l34.32-34.32A104,104,0,1,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path>
+<circle cx="128" cy="128" r="12"></circle><circle cx="80" cy="128" r="12"></circle><circle cx="176" cy="128" r="12"></circle>
+</svg>
+<span class="text-xs font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors p-2" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M136,80v43.47l36.12,21.67a8,8,0,0,1-8.24,13.72l-40-24A8,8,0,0,1,120,128V80a8,8,0,0,1,16,0Zm-8-48A95.44,95.44,0,0,0,60.08,60.15C52.81,67.51,46.35,74.59,40,82V64a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H72a8,8,0,0,0,0-16H49c7.15-8.42,14.27-16.35,22.39-24.57a80,80,0,1,1,1.66,114.75,8,8,0,1,0-11,11.64A96,96,0,1,0,128,32Z"></path>
+</svg>
+<span class="text-xs font-medium">History</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors p-2" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+</svg>
+<span class="text-xs font-medium">Profile</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

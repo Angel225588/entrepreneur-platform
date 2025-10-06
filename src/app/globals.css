@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark theme colors using HSL for better browser compatibility */
+  --bg-dark: hsl(37, 75%, 1%);
+  --bg: hsl(40, 48%, 4%);
+  --bg-light: hsl(42, 27%, 8%);
+  --text: hsl(42, 76%, 92%);
+  --text-muted: hsl(42, 17%, 67%);
+  --highlight: hsl(42, 14%, 37%);
+  --border: hsl(42, 19%, 26%);
+  --border-muted: hsl(42, 30%, 16%);
+  --primary: hsl(43, 50%, 59%);
+  --secondary: hsl(223, 77%, 77%);
+  --danger: hsl(9, 26%, 64%);
+  --warning: hsl(52, 19%, 57%);
+  --success: hsl(146, 17%, 59%);
+  --info: hsl(217, 28%, 65%);
+}
+
+body.light {
+  /* Light theme colors using HSL for better browser compatibility */
+  --bg-dark: hsl(42, 25%, 88%);
+  --bg: hsl(42, 46%, 93%);
+  --bg-light: hsl(42, 100%, 99%);
+  --text: hsl(37, 98%, 3%);
+  --text-muted: hsl(42, 19%, 26%);
+  --highlight: hsl(42, 100%, 97%);
+  --border: hsl(42, 11%, 48%);
+  --border-muted: hsl(42, 14%, 60%);
+  --primary: hsl(46, 100%, 14%);
+  --secondary: hsl(225, 44%, 34%);
+  --danger: hsl(9, 21%, 41%);
+  --warning: hsl(52, 23%, 34%);
+  --success: hsl(147, 19%, 36%);
+  --info: hsl(217, 22%, 41%);
+}
+
+/* Debugging styles */
+html {
+  /* Force visible background in case variables fail */
+  background-color: #1a1a1a !important;
+}
+
+body {
+  /* Ensure body inherits and has fallback */
+  background-color: var(--bg, #1a1a1a) !important;
+  color: var(--text, #f0f0f0) !important;
+  min-height: 100vh;
+}
+
+/* Debug indicator - should be visible in top-left */
+body::before {
+  content: "🔧 Debug Mode";
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: red;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  z-index: 9999;
+  border-radius: 0 0 4px 0;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Scrollbar utilities */
+.scrollbar-hide {
+  /* Firefox */
+  scrollbar-width: none;
+  /* Safari and Chrome */
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

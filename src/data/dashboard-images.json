@@ -1,0 +1,132 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Start with Why",
+      "description": "Define your purpose and motivation for this project journey.",
+      "progress": 30,
+      "completed": false,
+      "locked": false,
+      "image": {
+        "light": "/images/stages/start-with-why.jpg",
+        "dark": "/images/stages/start-with-why.jpg"
+      },
+      "icon": "🎯"
+    },
+    {
+      "id": 2,
+      "title": "Personas",
+      "description": "Create detailed user personas to understand your target audience.",
+      "progress": 0,
+      "completed": false,
+      "locked": true,
+      "image": {
+        "light": "/images/stages/Personas.jpg",
+        "dark": "/images/stages/Personas.jpg"
+      },
+      "icon": "👥"
+    },
+    {
+      "id": 3,
+      "title": "Value Proposition Canvas",
+      "description": "Map out your value propositions and customer segments.",
+      "progress": 0,
+      "completed": false,
+      "locked": true,
+      "image": {
+        "light": "/images/stages/Value proposition.jpg",
+        "dark": "/images/stages/Value proposition.jpg"
+      },
+      "icon": "💎"
+    },
+    {
+      "id": 4,
+      "title": "Lean Canvas",
+      "description": "Design your business model using the lean canvas methodology.",
+      "progress": 0,
+      "completed": false,
+      "locked": true,
+      "image": {
+        "light": "/images/stages/Lean Canvas.jpg",
+        "dark": "/images/stages/Lean Canvas.jpg"
+      },
+      "icon": "📋"
+    },
+    {
+      "id": 5,
+      "title": "Minimum Viable Product",
+      "description": "Define and build your minimum viable product strategy.",
+      "progress": 0,
+      "completed": false,
+      "locked": true,
+      "image": {
+        "light": "/images/stages/Lean Canvas.jpg",
+        "dark": "/images/stages/Lean Canvas.jpg"
+      },
+      "icon": "🚀"
+    },
+    {
+      "id": 6,
+      "title": "Mobius Loop",
+      "description": "Implement continuous discovery and delivery practices.",
+      "progress": 0,
+      "completed": false,
+      "locked": true,
+      "image": {
+        "light": "/images/stages/Mobius.jpg",
+        "dark": "/images/stages/Mobius.jpg"
+      },
+      "icon": "🔄"
+    }
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "name": "Start with Why",
+      "icon": "🎯",
+      "locked": false,
+      "completed": false,
+      "route": "/why-options"
+    },
+    {
+      "id": 2,
+      "name": "Personas",
+      "icon": "👥",
+      "locked": true,
+      "completed": false,
+      "route": "/personas"
+    },
+    {
+      "id": 3,
+      "name": "Value Proposition",
+      "icon": "💎",
+      "locked": true,
+      "completed": false,
+      "route": "/value-proposition"
+    },
+    {
+      "id": 4,
+      "name": "Lean Canvas",
+      "icon": "📋",
+      "locked": true,
+      "completed": false,
+      "route": "/lean-canvas"
+    },
+    {
+      "id": 5,
+      "name": "MVP",
+      "icon": "🚀",
+      "locked": true,
+      "completed": false,
+      "route": "/mvp"
+    },
+    {
+      "id": 6,
+      "name": "Mobius Loop",
+      "icon": "🔄",
+      "locked": true,
+      "completed": false,
+      "route": "/mobius-loop"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern AI Chat - Success</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            overflow: hidden;
+        }
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 relative">
+<div class="confetti-container" id="confetti"></div>
+<div class="flex flex-col h-screen justify-center items-center text-center p-6">
+<main class="flex-1 flex flex-col justify-center items-center space-y-6">
+<div class="relative">
+<svg class="w-48 h-48 text-primary animate-pulse" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" fill="none" opacity="0.2" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="283" stroke-width="4"></circle>
+<circle class="trophy-ring" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="0" stroke-width="4"></circle>
+<path class="sparkles" d="M50 30 V15 M35 30 L25 20 M65 30 L75 20" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<svg class="w-24 h-24 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8V21M9 21H15M12 3V5M6 6L7.4 7.4M18 6L16.6 7.4M4 12H6M18 12H20M9 16H15M8 21H16C17.1046 21 18 20.1046 18 19V12C18 10.3431 16.6569 9 15 9H9C7.34315 9 6 10.3431 6 12V19C6 20.1046 6.89543 21 8 21Z"></path>
+<path d="M12.01 3.01L12 3"></path>
+</svg>
+</div>
+</div>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Congratulations!</h1>
+<p class="text-xl text-gray-600 dark:text-gray-300">You earned <span class="font-bold text-primary">1500 Points!</span></p>
+</main>
+<footer class="w-full p-4 bg-transparent">
+<button class="w-full h-12 px-4 rounded-lg bg-primary text-white font-semibold text-lg">
+                Go back to Stages
+            </button>
+</footer>
+</div>
+<style>
+        .trophy-ring {
+            animation: draw-circle 2s ease-in-out forwards;
+        }
+        .sparkles {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+        @keyframes draw-circle {
+            from {
+                stroke-dashoffset: 283;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes sparkle {
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const duration = 5 * 1000,
+                animationEnd = Date.now() + duration,
+                defaults = {
+                    startVelocity: 30,
+                    spread: 360,
+                    ticks: 60,
+                    zIndex: 0
+                };
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+                const particleCount = 50 * (timeLeft / duration);
+                // since particles fall down, start a bit higher than random
+                confetti(
+                    Object.assign({}, defaults, {
+                        particleCount,
+                        origin: {
+                            x: randomInRange(0.1, 0.3),
+                            y: Math.random() - 0.2
+                        },
+                    })
+                );
+                confetti(
+                    Object.assign({}, defaults, {
+                        particleCount,
+                        origin: {
+                            x: randomInRange(0.7, 0.9),
+                            y: Math.random() - 0.2
+                        },
+                    })
+                );
+            }, 250);
+        });
+    </script>
+
+</body></html>

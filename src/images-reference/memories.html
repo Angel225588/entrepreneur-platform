@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Memories</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background-light": "#ffffff",
+            "background-dark": "#121212",
+            "card-light": "#f0f2f5",
+            "card-dark": "#2d2d2d",
+            "text-light": "#1f1f1f",
+            "text-dark": "#e0e0e0",
+            "primary": "#4a90e2",
+            "secondary-light": "#e8eaf6",
+            "secondary-dark": "#3949ab",
+          },
+          fontFamily: {
+            display: ["'Inter'", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="p-4">
+<header class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-4">
+<img alt="AI avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7HH8NrcRW6m9-ilqaEZnSsGjoHh-SxCJqC9GjQod_O8B4rCseXga1Sloreco3HUmbQevm7vZ0Pd0W7y-ryqk8_8xk_YttG_3Cn-D9bOEPhw4TzE0s7xG91OR4KNsbA1keZ_bEe2Zqr5aKqAWS9bU4yoC5--OqzYUlFZ_kwu2ThziNma87T49zPhCfjlhXyuF36XhWVfWDfFEGx37h4p1djruwSHVvkX8QLohNtQbI9zPdPBujRWvEmme7xyNlekDG8ysjQcU425g"/>
+<div>
+<h1 class="text-xl font-bold">Memories</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400">With your AI</p>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<div class="flex items-center gap-2 mb-6">
+<button class="px-4 py-2 text-sm font-medium text-white rounded-full bg-primary">All</button>
+<button class="px-4 py-2 text-sm font-medium bg-gray-200 rounded-full text-text-light dark:bg-card-dark dark:text-text-dark">
+      Stage 1
+    </button>
+<button class="px-4 py-2 text-sm font-medium bg-gray-200 rounded-full text-text-light dark:bg-card-dark dark:text-text-dark">
+      Stage 2
+    </button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-lg bg-secondary-light dark:bg-secondary-dark">
+<h3 class="mb-2 font-bold">Objectifs quotidiens.</h3>
+<ul class="space-y-2 text-sm">
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Set a timer for 25 minutes and practice your french flashcards</span>
+</li>
+<li class="flex items-start">
+<input checked="" class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Take 25 minutes on smart 🤓 beemo lesson.</span>
+</li>
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Create your story with chatgpt, and memoriz it.</span>
+</li>
+</ul>
+</div>
+<div class="p-4 bg-teal-100 rounded-lg dark:bg-teal-900">
+<h3 class="mb-2 font-bold">Lecturs de meditacion</h3>
+<p class="text-sm">
+        /2co 3.16-18
+        Pero cuando se conviertan al Señor, el velo se quitará.
+        Porque el Señor es el Espíritu; y donde está el Espíritu del Señor, allí hay libertad. Por tanto, nosotros
+        todos, mirando a cara descubierta como en un espejo la gloria del Señor, somos transformados de gloria en
+        gloria en la misma imagen, c...
+      </p>
+</div>
+<div class="p-4 bg-orange-100 rounded-lg dark:bg-orange-900">
+<h3 class="mb-2 font-bold">Ofrenda</h3>
+<p class="mb-4 text-sm">
+        1. "Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador
+        alegre" (2 Corintios 9:7)
+      </p>
+<p class="mb-4 text-sm">
+        4. "No os canséis en hacer el bien, porque a su tiempo se..."
+      </p>
+<div class="flex items-center justify-start -space-x-2">
+<img alt="User Avatar" class="w-6 h-6 border-2 border-white rounded-full dark:border-gray-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK41nMDrnZqNsBE7iOoXgu2-YgX3uogc2WMI7JDmVfypC5_zzB-MZiePKayPKUsl3tFZ0XsLdxy_Jmw3j_SnefyNxy1oMlDpafUThM6dVG3x7Rw2b-AJlaAIigZkmQpHWa-b6G6setk5_wn_TyrFTHtNr-K8wNruykSfe4WCZhEfglW6RS4T1kxMpQn-KpamTY2geq1I3TpJIt_pF-hJGqsNljp88lmYasxu5Q5xI9HhM5vCLnEjFuvEKJHIV7c2hcqpN9Q2twVZc"/>
+</div>
+</div>
+<div class="p-4 bg-blue-100 rounded-lg dark:bg-blue-900">
+<h3 class="mb-2 font-bold">Influencers.</h3>
+<p class="text-sm">
+        Epale mi pana que mas como estas. Mira hermano sabes que tenemos una pequeña de empresa con las companias de
+        streaming, y la verdad me encanta como trabajas Bro, eres excelente, y te recomendé para participar con
+        nosotros como uno de nuestros principales Creadores e Influenciar.
+      </p>
+<div class="flex items-center justify-start mt-4 -space-x-2">
+<img alt="User Avatar" class="w-6 h-6 border-2 border-white rounded-full dark:border-gray-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCunL-ZRDxgwKLNcs8Q4fE_dccAyRmLs1vxy7C7H4R5TPi318ybBUGS7Ip3MoHL25hXc18egmIGAKhKnax52pMA9q76G6p-bE5xk7yClOno6BpvDvN49xc5YbhsUVXcEVT8jlr_yHOyaHFlLGxNt2AQTr8aLMerl1IFjsIMgQBdniw5uG3WibJyJksyfKhHG3h_0SAO8Cgcxe8lZd3eXNY4HWoBI_NhtdOrfj1qR_YyOC0_sModaQi3zSe29SnFiTyDubX5BVitc1w"/>
+</div>
+</div>
+<div class="p-4 bg-lime-100 rounded-lg dark:bg-lime-900">
+<ul class="space-y-2 text-sm">
+<li class="flex items-start">
+<input checked="" class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Los ojos, (Es lo primero que vemos)</span>
+</li>
+<li class="flex items-start">
+<input checked="" class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Mientras más sencillo mejor.</span>
+</li>
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>El daño reversible (Necesita Peligro)</span>
+</li>
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Provocar reta (El cerebro piensa en lo mejor)</span>
+</li>
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Antes del momento de verdad.</span>
+</li>
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Las formas redondas u ovalos, siempre han llamado mi ho mas la ate...</span>
+</li>
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Busca y disfruta lo tangible. (El cerebro necesita tocar para creer.</span>
+</li>
+<li class="flex items-start">
+<input class="w-4 h-4 mt-1 mr-2 border-gray-400 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>El hombre tiene visión de</span>
+</li>
+</ul>
+</div>
+<div class="p-4 bg-indigo-100 rounded-lg dark:bg-indigo-900">
+<h3 class="mb-2 font-bold">Comida</h3>
+<p class="text-sm">
+        Toilette paper.
+        <br/>
+        Patty's food.
+        <br/>
+        Tooth paste
+      </p>
+<img alt="beach drawing" class="w-full mt-2 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxMafDcl8CK7uxwenoaXf7RgT6u_NpIc2y5RM6xj5ECPlFbYKvXYmmK4xGPVVvqoyAm9MdSF3VE-29Q1tit8WHKd_F9credfHEzhVT_UCqfIN6odTeSHXPqau0ppq3RdJprkv0yDxnqS0KN0fLtFKAKis-np5enTAe6oYVQM98PBFre6x95JrxHL0dLtmnEAb6F17mzqz_7OPnwVsIXMZEvMb_9ZVVY47jAcYBN5pQV11yIi_cyGHA6Zi-kkMcHEH78TGRNd6Egnw"/>
+</div>
+<div class="p-4 rounded-lg bg-card-light dark:bg-card-dark">
+<h3 class="mb-2 font-bold">Binance Smart Cha...</h3>
+</div>
+</div>
+<div class="fixed bottom-8 right-8">
+<button class="flex items-center justify-center w-16 h-16 text-white rounded-full shadow-lg bg-primary hover:bg-opacity-90">
+<span class="material-symbols-outlined" style="font-size: 36px;">add</span>
+</button>
+</div>
+</div>
+
+</body></html>
