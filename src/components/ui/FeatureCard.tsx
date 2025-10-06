@@ -114,7 +114,7 @@ export default function FeatureCard({
         {/* Benefits List */}
         {benefits && benefits.length > 0 && (
           <div className={`${isVertical ? 'mb-6' : isPresentation ? 'mb-8' : 'mb-8'}`}>
-            <h3 className={`${isVertical ? 'text-lg mb-3' : isPresentation ? 'text-xl mb-4' : 'text-xl mb-4'} font-semibold text-text`}>You'll get:</h3>
+            <h3 className={`${isVertical ? 'text-lg mb-3' : isPresentation ? 'text-xl mb-4' : 'text-xl mb-4'} font-semibold text-text`}>You&apos;ll get:</h3>
             <ul className={`${isVertical ? 'space-y-2' : isPresentation ? 'space-y-3' : 'space-y-3'}`}>
               {benefits.map((benefit, index) => (
                 <li key={index} className={`flex items-start ${isVertical ? 'text-sm' : isPresentation ? 'text-base' : 'text-base'} text-text-muted group-hover:text-text transition-colors duration-300`}>

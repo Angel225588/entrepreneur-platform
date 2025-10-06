@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 import NoteCard from '@/components/ui/NoteCard'
 import NotificationBadge from '@/components/ui/NotificationBadge'
@@ -127,14 +127,14 @@ export default function NotesPage() {
   const filterStages = ['All', 'Start with Why', 'Personas', 'Value Proposition', 'Lean Canvas', 'MVP', 'Mobius Loop']
 
   // AI Inconsistency Detection
-  const runInconsistencyDetection = () => {
+  const runInconsistencyDetection = useCallback(() => {
     const analyzedNotes = aiInconsistencyDetector.analyzeAllNotes(notes)
     setNotes(analyzedNotes)
     setFilteredNotes(analyzedNotes.filter(note =>
       selectedFilter === 'All' || note.stage === selectedFilter
     ))
     localStorage.setItem('projectNotes', JSON.stringify(analyzedNotes))
-  }
+  }, [notes, selectedFilter])
 
   // Run inconsistency detection when notes change
   useEffect(() => {
@@ -144,7 +144,7 @@ export default function NotesPage() {
       }, 2000) // Run after 2 seconds of no changes
       return () => clearTimeout(timer)
     }
-  }, [notes.length]) // Only run when note count changes
+  }, [notes.length, runInconsistencyDetection]) // Only run when note count changes
 
   const handleFilterChange = (filter: string) => {
     setSelectedFilter(filter)
