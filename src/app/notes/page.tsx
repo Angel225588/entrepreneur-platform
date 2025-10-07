@@ -94,7 +94,7 @@ export default function NotesPage() {
         {
           id: '4',
           title: 'Key Success Metrics',
-          content: '• User validation completion rate > 70%\n• Startup success rate improvement\n• Time to market reduction\n• User satisfaction score > 4.5/5',
+          content: '• User validation completion rate > 70%\\n• Startup success rate improvement\\n• Time to market reduction\\n• User satisfaction score > 4.5/5',
           stage: 'Start with Why',
           stageId: 1,
           type: 'goal',
