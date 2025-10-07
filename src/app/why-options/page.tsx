@@ -1,14 +1,57 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ThemeToggle from '@/components/ui/ThemeToggle'
+import { ProgressManager } from '@/utils/progress'
+
+type StepStatus = 'completed' | 'current' | 'locked'
+
+interface Option {
+  id: string
+  title: string
+  description: string
+  points: number
+  route: string
+  image: string
+  completion: number
+  status: StepStatus
+}
 
 export default function WhyOptionsPage() {
   const router = useRouter()
   const [isSideNavOpen, setIsSideNavOpen] = useState(false)
+  const [options, setOptions] = useState<Option[]>([])
 
-  const options = [
+  // Step order defines the sequential progression
+  const stepOrder = ['start-with-why', 'ikigai', 'tree-of-life']
+
+  const getStepStatus = (stageId: string): StepStatus => {
+    const isCompleted = ProgressManager.isStageCompleted(stageId)
+    if (isCompleted) return 'completed'
+
+    // Sequential logic: next available step is 'current'
+    const currentIndex = stepOrder.indexOf(stageId)
+
+    // First step is always available
+    if (currentIndex === 0) return 'current'
+
+    // Check if previous stages are completed
+    for (let i = 0; i < currentIndex; i++) {
+      if (!ProgressManager.isStageCompleted(stepOrder[i])) {
+        return 'locked'
+      }
+    }
+
+    return 'current'
+  }
+
+  const getCompletionPercentage = (stageId: string): number => {
+    const completion = ProgressManager.getStageCompletion(stageId)
+    return completion?.completed ? 100 : 0
+  }
+
+  const baseOptions = [
     {
       id: 'start-with-why',
       title: 'START WITH WHY',
@@ -16,7 +59,6 @@ export default function WhyOptionsPage() {
       points: 500,
       route: '/why',
       image: '/images/stages/golden circle start with why.jpg',
-      completion: 0
     },
     {
       id: 'ikigai',
@@ -25,7 +67,6 @@ export default function WhyOptionsPage() {
       points: 500,
       route: '/ikigai',
       image: '/images/stages/Ikigui.jpg',
-      completion: 0
     },
     {
       id: 'tree-of-life',
@@ -34,9 +75,78 @@ export default function WhyOptionsPage() {
       points: 500,
       route: '/tree-of-life',
       image: '/images/stages/Tree of life.jpg',
-      completion: 0
     }
   ]
+
+  useEffect(() => {
+    // Initialize options with dynamic status and completion
+    const updatedOptions = baseOptions.map(option => ({
+      ...option,
+      completion: getCompletionPercentage(option.id),
+      status: getStepStatus(option.id)
+    }))
+    setOptions(updatedOptions)
+  }, [])
+
+  const getCardStyles = (status: StepStatus) => {
+    const baseStyles = `
+      w-full
+      max-w-[398px]
+      h-[309px]
+      bg-bg
+      border
+      rounded-xl
+      overflow-hidden
+      transition-all
+      duration-300
+      group
+      flex
+      flex-col
+      relative
+    `
+
+    switch (status) {
+      case 'completed':
+        return `${baseStyles} border-success bg-success/5 shadow-lg shadow-success/20 hover:shadow-xl hover:shadow-success/30 hover:scale-105 cursor-pointer`
+      case 'current':
+        return `${baseStyles} border-primary bg-primary/5 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 cursor-pointer ring-2 ring-primary/30`
+      case 'locked':
+        return `${baseStyles} border-border opacity-60 cursor-not-allowed bg-bg-light/50`
+      default:
+        return `${baseStyles} border-border hover:shadow-lg hover:border-border-muted hover:scale-105 cursor-pointer`
+    }
+  }
+
+  const getStatusIcon = (status: StepStatus) => {
+    switch (status) {
+      case 'completed':
+        return '✅'
+      case 'current':
+        return '⏳'
+      case 'locked':
+        return '🔒'
+      default:
+        return ''
+    }
+  }
+
+  const getStatusText = (status: StepStatus) => {
+    switch (status) {
+      case 'completed':
+        return 'Completed'
+      case 'current':
+        return 'Start'
+      case 'locked':
+        return 'Locked'
+      default:
+        return 'Start'
+    }
+  }
+
+  const handleOptionClick = (option: Option) => {
+    if (option.status === 'locked') return
+    router.push(option.route)
+  }
 
   return (
     <div className="min-h-screen bg-bg">
@@ -80,25 +190,24 @@ export default function WhyOptionsPage() {
           {options.map((option) => (
             <div
               key={option.id}
-              onClick={() => router.push(option.route)}
-              className="
-                w-full
-                max-w-[398px]
-                h-[309px]
-                bg-bg
-                border
-                border-border
-                rounded-xl
-                overflow-hidden
-                transition-all
-                duration-300
-                hover:shadow-lg hover:border-border-muted hover:scale-105 cursor-pointer
-                group
-                flex
-                flex-col
-                relative
-              "
+              onClick={() => handleOptionClick(option)}
+              className={getCardStyles(option.status)}
             >
+              {/* Status Badge */}
+              <div className="absolute top-4 left-4 z-20 flex items-center space-x-2">
+                <div className={`
+                  px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm
+                  ${option.status === 'completed'
+                    ? 'bg-success/20 text-success border border-success/30'
+                    : option.status === 'current'
+                    ? 'bg-primary/20 text-primary border border-primary/30'
+                    : 'bg-bg-light/80 text-text-muted border border-border'
+                  }
+                `}>
+                  <span className="mr-1">{getStatusIcon(option.status)}</span>
+                  {option.status === 'completed' ? 'Completed' : option.status === 'locked' ? 'Locked' : 'Available'}
+                </div>
+              </div>
               {/* Image Section - Top 60% */}
               <div className="
                 relative
@@ -115,17 +224,17 @@ export default function WhyOptionsPage() {
                 <img
                   src={option.image}
                   alt={option.title}
-                  className="
+                  className={`
                     absolute
                     inset-0
                     w-full
                     h-full
                     object-cover
-                    opacity-40
                     transition-transform
                     duration-300
                     group-hover:scale-105
-                  "
+                    ${option.status === 'locked' ? 'opacity-20 grayscale' : 'opacity-40'}
+                  `}
                 />
 
 
@@ -138,13 +247,25 @@ export default function WhyOptionsPage() {
                   z-10
                 ">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-bg-dark text-sm font-medium bg-bg/80 px-2 py-1 rounded-md backdrop-blur-sm">
+                    <span className={`text-sm font-medium px-2 py-1 rounded-md backdrop-blur-sm ${
+                      option.status === 'completed'
+                        ? 'bg-success/20 text-success'
+                        : option.status === 'current'
+                        ? 'bg-primary/20 text-primary'
+                        : 'bg-bg/80 text-bg-dark'
+                    }`}>
                       {option.completion}% Complete
                     </span>
                   </div>
                   <div className="w-full bg-bg-dark/30 rounded-full h-3 backdrop-blur-sm">
                     <div
-                      className="bg-success h-3 rounded-full transition-all duration-500"
+                      className={`h-3 rounded-full transition-all duration-500 ${
+                        option.status === 'completed'
+                          ? 'bg-success'
+                          : option.status === 'current'
+                          ? 'bg-primary'
+                          : 'bg-text-muted'
+                      }`}
                       style={{ width: `${option.completion}%` }}
                     ></div>
                   </div>
@@ -160,17 +281,21 @@ export default function WhyOptionsPage() {
                 justify-between
               ">
                 {/* Title */}
-                <h3 className="
+                <h3 className={`
                   text-lg
                   font-semibold
-                  text-text
                   leading-tight
                   mb-2
-                  group-hover:text-primary
                   transition-colors
                   duration-300
                   line-clamp-2
-                ">
+                  ${option.status === 'locked'
+                    ? 'text-text-muted'
+                    : option.status === 'completed'
+                    ? 'text-success group-hover:text-success'
+                    : 'text-text group-hover:text-primary'
+                  }
+                `}>
                   {option.title}
                 </h3>
 
@@ -193,25 +318,38 @@ export default function WhyOptionsPage() {
                   <span className="bg-text-muted text-bg text-xs px-2 py-1 rounded-md font-medium">
                     {option.points}
                   </span>
-                  <div className="
-                    opacity-0
-                    group-hover:opacity-100
+                  <div className={`
                     transition-opacity
                     duration-300
-                    text-primary
                     font-medium
                     flex
                     items-center
-                  ">
-                    Start
-                    <svg
-                      className="ml-1 w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    ${option.status === 'locked'
+                      ? 'opacity-50 text-text-muted'
+                      : option.status === 'completed'
+                      ? 'text-success opacity-100'
+                      : 'text-primary opacity-0 group-hover:opacity-100'
+                    }
+                  `}>
+                    {getStatusText(option.status)}
+                    {option.status !== 'locked' && (
+                      <svg
+                        className={`ml-1 w-3 h-3 transition-transform duration-300 ${
+                          option.status === 'completed'
+                            ? 'transform rotate-90'
+                            : 'transform group-hover:translate-x-1'
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        {option.status === 'completed' ? (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        ) : (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        )}
+                      </svg>
+                    )}
                   </div>
                 </div>
               </div>
